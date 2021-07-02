@@ -19,6 +19,9 @@ namespace CursoMvcApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            //linea para enviar todos los controlles en json serializado 
+            var formatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            formatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
         }
     }
 }
